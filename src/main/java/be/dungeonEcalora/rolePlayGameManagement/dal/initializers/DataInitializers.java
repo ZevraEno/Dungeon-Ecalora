@@ -1,6 +1,8 @@
 package be.dungeonEcalora.rolePlayGameManagement.dal.initializers;
 
+import be.dungeonEcalora.rolePlayGameManagement.dal.repositories.RaceRepository;
 import be.dungeonEcalora.rolePlayGameManagement.dal.repositories.UserRepository;
+import be.dungeonEcalora.rolePlayGameManagement.dl.entities.Race;
 import be.dungeonEcalora.rolePlayGameManagement.dl.entities.User;
 import be.dungeonEcalora.rolePlayGameManagement.dl.enums.Gender;
 import be.dungeonEcalora.rolePlayGameManagement.dl.enums.Role;
@@ -17,8 +19,8 @@ import java.util.List;
 public class DataInitializers implements CommandLineRunner {
 
     private final UserRepository userRepository;
-
     private final PasswordEncoder passwordEncoder;
+    private final RaceRepository raceRepository;
 
     @Override
     public void run(String... args) throws Exception {
@@ -28,10 +30,10 @@ public class DataInitializers implements CommandLineRunner {
             userRepository.save(new User("admin", "admin@admin.be", password, LocalDate.now(), Gender.MALE, Role.ADMIN));
             userRepository.save(new User("Utilisateur supprimé", "delete@delete.com", password, LocalDate.now(), Gender.MALE, Role.USER));
             userRepository.save(new User("user", "user@user.be", password, LocalDate.now(), Gender.MALE, Role.USER));
-            User member1 = new User("Dylan", "greywarden.dp@gmail.com", password, LocalDate.of(1996, 1, 29), Gender.MALE, Role.USER);
+            User member = new User("Dylan", "greywarden.dp@gmail.com", password, LocalDate.of(1996, 1, 29), Gender.MALE, Role.USER);
 
             List<User> members = List.of(
-                    member1,
+                    member,
                     new User("user4", "user4@user.be", password, LocalDate.of(1995, 4, 10), Gender.FEMALE, Role.USER),
                     new User("user5", "user5@user.be", password, LocalDate.of(1998, 7, 19), Gender.MALE, Role.USER),
                     new User("user6", "user6@user.be", password, LocalDate.of(1992, 10, 30), Gender.FEMALE, Role.USER),
@@ -41,5 +43,12 @@ public class DataInitializers implements CommandLineRunner {
 
             userRepository.saveAll(members);
 
+        Race race = new Race(
+                "Hobbit Tournament",
+                "Nouvelle Zélande",
+                "Polyvalents, adaptables à tout.",
+                "oui"
+                );
+        raceRepository.saveAll(List.of(race));
     }
 }
