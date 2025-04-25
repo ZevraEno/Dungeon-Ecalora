@@ -2,7 +2,7 @@ package be.dungeonEcalora.rolePlayGameManagement.bll.services.specialisation.imp
 
 import be.dungeonEcalora.rolePlayGameManagement.bll.services.specialisation.SpecialisationService;
 import be.dungeonEcalora.rolePlayGameManagement.dal.repositories.SpecialisationRepository;
-import be.dungeonEcalora.rolePlayGameManagement.dl.entities.Charactere.Specialisation;
+import be.dungeonEcalora.rolePlayGameManagement.dl.entities.Specialisation;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

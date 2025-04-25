@@ -10,15 +10,5 @@ import java.util.List;
 @Repository
 public interface RaceRepository extends JpaRepository<Race, Long> {
 
-    boolean existsByName(String name);
-
-    @Query("SELECT r FROM Race r ORDER BY r.nom ASC")
-    List<Race> findAllOrderedByName();
-
-    @Query("SELECT r FROM Race r WHERE r.taille = true")
-    List<Race> findAllAvailableRaces();
-
-    @Query("SELECT r FROM Race r WHERE LOWER(r.nom) LIKE LOWER(CONCAT('%', :keyword, '%'))")
-    List<Race> searchByName(@Param("keyword") String keyword);
 
 }

@@ -1,6 +1,6 @@
 package be.dungeonEcalora.rolePlayGameManagement.bll.services.specialisation;
 
-import be.dungeonEcalora.rolePlayGameManagement.dl.entities.Charactere.Specialisation;
+import be.dungeonEcalora.rolePlayGameManagement.dl.entities.Specialisation;
 
 import java.util.List;
 import java.util.Optional;

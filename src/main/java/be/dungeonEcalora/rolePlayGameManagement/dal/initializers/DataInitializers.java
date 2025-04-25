@@ -12,6 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -46,6 +47,7 @@ public class DataInitializers implements CommandLineRunner {
         Race race = new Race(
                 "Hobbit Tournament",
                 "Nouvelle Zélande",
+                "humain",
                 "Polyvalents, adaptables à tout.",
                 "oui"
                 );

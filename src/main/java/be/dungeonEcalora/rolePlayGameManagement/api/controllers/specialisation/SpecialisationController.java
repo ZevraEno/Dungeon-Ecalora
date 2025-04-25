@@ -1,7 +1,7 @@
 package be.dungeonEcalora.rolePlayGameManagement.api.controllers.specialisation;
 
 import be.dungeonEcalora.rolePlayGameManagement.bll.services.specialisation.SpecialisationService;
-import be.dungeonEcalora.rolePlayGameManagement.dl.entities.Charactere.Specialisation;
+import be.dungeonEcalora.rolePlayGameManagement.dl.entities.Specialisation;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

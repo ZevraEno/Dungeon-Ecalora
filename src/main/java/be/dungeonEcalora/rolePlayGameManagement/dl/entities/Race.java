@@ -15,12 +15,14 @@ public class Race {
 
     private String nom;
     private String description;
+    private String bonusCaracteristique;
     private String taille;
     private String vitesse;
 
-    public Race(String nom, String description, String taille, String vitesse) {
+    public Race(String nom, String description, String bonusCaracteristique, String taille, String vitesse) {
     this.nom = nom;
     this.description = description;
+    this.bonusCaracteristique = bonusCaracteristique;
     this.taille = taille;
     this.vitesse = vitesse;
     }

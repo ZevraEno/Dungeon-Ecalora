@@ -1,4 +1,4 @@
-package be.dungeonEcalora.rolePlayGameManagement.dl.entities.Charactere;
+package be.dungeonEcalora.rolePlayGameManagement.dl.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
