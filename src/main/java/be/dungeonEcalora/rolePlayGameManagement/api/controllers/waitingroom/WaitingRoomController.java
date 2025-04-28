@@ -18,27 +18,23 @@ public class WaitingRoomController {
 
     private final WaitingRoomService waitingRoomService;
 
-    @Operation
     @PostMapping("/join")
     public ResponseEntity<Void> joinWaitingRoom(@RequestBody UserDto userDto) {
         waitingRoomService.joinWaitingRoom(userDto);
         return ResponseEntity.ok().build();
     }
 
-    @Operation
     @PostMapping("/leave")
     public ResponseEntity<Void> leaveWaitingRoom(@RequestBody UserDto userDto) {
         waitingRoomService.leaveWaitingRoom(userDto);
         return ResponseEntity.ok().build();
     }
 
-    @Operation
     @GetMapping("/users")
     public ResponseEntity<List<UserDto>> getConnectedUsers() {
         return ResponseEntity.ok(waitingRoomService.getConnectedUsers());
     }
 
-    @Operation
     @GetMapping("/can-start")
     public ResponseEntity<Boolean> canStartSession() {
         return ResponseEntity.ok(waitingRoomService.canStartSession());
