@@ -54,119 +54,169 @@ public class DataInitializers implements CommandLineRunner {
                                                 Role.Player));
                 userRepository.saveAll(members);
 
+                // Création des races
                 Race humain = new Race(
                         "Humain",
-                        "non",
+                        "Non",
                         "+2 Force",
                         "2m-2m30",
-                        "moyenne");
+                        "Race moyenne");
+
                 Race elfe = new Race(
                         "Elfe",
-                        "oui",
-                        "+2Dextérité",
+                        "Oui",
+                        "+2 Dextérité",
                         "1m70-2m",
-                        "fine");
+                        "Race fine");
+
                 Race nain = new Race(
                         "Nain",
-                        "non",
-                        "+2Constitution",
+                        "Non",
+                        "+2 Constitution",
                         "1m20-1m50",
-                        "trapu");
+                        "Race trapue");
+
                 Race drake = new Race(
-                        "Humain",
-                        "non",
-                        "+2Force",
+                        "Drake",
+                        "Non",
+                        "+2 Force",
                         "2m-2m30",
-                        "moyenne");
+                        "Race musclée");
+
                 Race furry = new Race(
-                        "Elfe",
-                        "oui",
-                        "+2Dextérité",
-                        "1m70-2m",
-                        "fine");
+                        "Furry",
+                        "Oui",
+                        "+2 Dextérité",
+                        "1m60-2m",
+                        "Race agile");
+
                 Race lapin = new Race(
-                        "Nain",
-                        "non",
-                        "+2Constitution",
-                        "1m20-1m50",
-                        "trapu");
+                        "Lapin",
+                        "Non",
+                        "+2 Agilité",
+                        "0m80-1m20",
+                        "Race petite");
+
                 Race japon = new Race(
-                        "Humain",
-                        "non",
-                        "+2Force",
-                        "2m-2m30",
-                        "moyenne");
+                        "Japonais",
+                        "Non",
+                        "+2 Intelligence",
+                        "1m60-1m80",
+                        "Race élancée");
+
                 Race pomme = new Race(
-                        "Elfe",
-                        "oui",
-                        "+2Dextérité",
-                        "1m70-2m",
-                        "fine");
+                        "Pomme",
+                        "Oui",
+                        "+2 Charisme",
+                        "1m50-1m80",
+                        "Race fruitée");
+
                 Race fezur = new Race(
-                        "Nain",
-                        "non",
-                        "+2Constitution",
-                        "1m20-1m50",
-                        "trapu");
+                        "Fezur",
+                        "Non",
+                        "+2 Endurance",
+                        "1m60-2m",
+                        "Race robuste");
+
                 Race alien = new Race(
-                        "Humain",
-                        "non",
-                        "+2Force",
-                        "2m-2m30",
-                        "moyenne");
+                        "Alien",
+                        "Non",
+                        "+2 Force",
+                        "2m-3m",
+                        "Race extraterrestre");
+
                 Race weeb = new Race(
-                        "Elfe",
-                        "oui",
-                        "+2Dextérité",
-                        "1m70-2m",
-                        "fine");
+                        "Weeb",
+                        "Oui",
+                        "+2 Agilité",
+                        "1m60-1m80",
+                        "Race fanatique");
+
                 Race magicien = new Race(
-                        "Nain",
-                        "non",
-                        "+2Constitution",
-                        "1m20-1m50",
-                        "trapu");
-                raceRepository.saveAll(List.of(humain, elfe, nain, drake, furry, lapin, japon, pomme, fezur, alien, weeb, magicien));
+                        "Magicien",
+                        "Non",
+                        "+2 Intelligence",
+                        "1m70-2m",
+                        "Race intellectuelle");
 
-                Quest quest = new Quest(
-                        "Humain",
-                        "oui",
-                        "+2Force",
+                raceRepository.saveAll(List.of(
+                        humain, elfe, nain, drake, furry, lapin, japon, pomme, fezur, alien, weeb, magicien));
+
+                Quest quest1 = new Quest(
+                        "Quête de la Forêt Sombre",
+                        "Disponible",
+                        "+2 Force",
                         "2m-2m30");
+
                 Quest quest2 = new Quest(
-                        "Humain",
-                        "oui",
-                        "+2Force",
-                        "2m-2m30");
-                questRepository.saveAll(List.of(quest, quest2));
+                        "Quête de la Tour du Magicien",
+                        "Disponible",
+                        "+2 Intelligence",
+                        "1m70-2m");
 
-                Guide guide = new Guide(
-                        "oui",
-                        "oui",
-                        "oui",
-                        "oui");
+                Quest quest3 = new Quest(
+                        "Quête de la Caverne des Nains",
+                        "Non disponible",
+                        "+2 Constitution",
+                        "1m20-1m50");
+
+                Quest quest4 = new Quest(
+                        "Quête des Artefacts Mystiques",
+                        "Disponible",
+                        "+2 Dextérité",
+                        "1m60-2m");
+
+                questRepository.saveAll(List.of(quest1, quest2, quest3, quest4));
+
+                Guide guide1 = new Guide(
+                        "Conseils pour débutants",
+                        "Stratégies avancées",
+                        "Plan de campagne",
+                        "Règles détaillées");
+
                 Guide guide2 = new Guide(
-                        "oui",
-                        "oui",
-                        "oui",
-                        "oui");
+                        "Conseils pour débutants",
+                        "Stratégies basiques",
+                        "Plan de campagne",
+                        "Règles de base");
 
-                guideRepository.saveAll(List.of(guide, guide2));
+                Guide guide3 = new Guide(
+                        "Conseils pour débutants",
+                        "Stratégies avancées",
+                        "Plan de campagne",
+                        "Règles détaillées");
 
-                Equipment equipment = new Equipment(
-                        "oui",
-                        "oui",
-                        "oui",
-                        "oui",
-                        "oui");
+                guideRepository.saveAll(List.of(guide1, guide2, guide3));
+
+                Equipment equipment1 = new Equipment(
+                        "Épée en fer",
+                        "1 kg",
+                        "Moyenne portée",
+                        "Bonne qualité",
+                        "Requiert une force de 5");
+
                 Equipment equipment2 = new Equipment(
-                        "oui",
-                        "oui",
-                        "oui",
-                        "oui",
-                        "oui");
-                equipmentRepository.saveAll(List.of(equipment, equipment2));
+                        "Bottes magiques",
+                        "500g",
+                        "Mobilité accrue",
+                        "Qualité supérieure",
+                        "Améliore la vitesse de déplacement");
 
+                Equipment equipment3 = new Equipment(
+                        "Bouclier de titan",
+                        "10 kg",
+                        "Protection maximale",
+                        "Excellente qualité",
+                        "Requiert une constitution de 10");
+
+                Equipment equipment4 = new Equipment(
+                        "Amulette magique",
+                        "200g",
+                        "Pouvoir magique",
+                        "Rare",
+                        "Accroît la résistance magique");
+
+                equipmentRepository.saveAll(List.of(equipment1, equipment2, equipment3, equipment4));
 
         }
 }
