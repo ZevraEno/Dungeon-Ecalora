@@ -12,7 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-@Tag(name = "Administrator - Gestion des user")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/admin/user")
@@ -21,8 +20,8 @@ public class AdminUserController {
 
     private final UserService userService;
 
-    @Operation(summary = "Renvoie les membres par page (ADMIN)")
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @Operation
+    @PreAuthorize("hasAuthority('GameMaster')")
     @GetMapping
     public ResponseEntity<Page<UserDto>> getAllUsersByAdmin(
             @RequestParam(defaultValue = "0") int page,
@@ -34,8 +33,8 @@ public class AdminUserController {
         return ResponseEntity.ok(user);
     }
 
-    @Operation(summary = "Suppression d'un compte (ADMIN)")
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @Operation
+    @PreAuthorize("hasAuthority('GameMaster')")
     @DeleteMapping("/{userId}/delete")
     public ResponseEntity<Void> deleteUserById(
             @PathVariable Long userId){

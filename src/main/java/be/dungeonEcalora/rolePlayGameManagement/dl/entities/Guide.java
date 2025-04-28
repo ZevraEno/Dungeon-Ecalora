@@ -5,25 +5,24 @@ import lombok.*;
 
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "guide")
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Entity
 public class Guide {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
-
     private String titre;
     private String description;
-
-    @Lob
     private String contenu;
+    private String origin;
 
-    private String auteur;
-    private LocalDate datePublication;
-
+    public Guide(String titre, String description, String contenu, String origin) {
+        this.titre= titre;
+        this.description= description;
+        this.contenu= contenu;
+        this.origin = origin;
+    }
 }

@@ -19,12 +19,6 @@ public class UserServiceImpls implements UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
-    /**
-     * Méthode pour mettre à jour les informations d'un membre.
-     *
-     * @param userForm Objet contenant les nouvelles informations du membre.
-     * @throws UserNotFoundException Si le membre avec cet identifiant n'est pas trouvé.
-     */
     @Override
     public void update(UserForm userForm, Long memberId) {
         User memberToUpdate = userRepository.findById(memberId).orElseThrow(
@@ -38,12 +32,6 @@ public class UserServiceImpls implements UserService {
         userRepository.save(memberToUpdate);
     }
 
-    /**
-     * Méthode pour supprimer un membre de la base de données.
-     *
-     * @param userId L'identifiant du membre à supprimer.
-     * @throws UserNotFoundException Si le membre avec cet identifiant n'est pas trouvé.
-     */
     @Override
     public void delete(Long userId) {
         User memberToDelete = userRepository.findById(userId).orElseThrow(
@@ -52,13 +40,6 @@ public class UserServiceImpls implements UserService {
         userRepository.delete(memberToDelete);
     }
 
-
-    /**
-     * Méthode pour récupérer tous les membres avec pagination.
-     *
-     * @param pageable Les informations de pagination pour limiter et trier les résultats.
-     * @return Une page de membres correspondant aux critères de pagination.
-     */
     @Override
     public Page<User> getAllMembers(Pageable pageable) {
         return userRepository.findAll(pageable);
@@ -69,13 +50,6 @@ public class UserServiceImpls implements UserService {
 
     }
 
-    /**
-     * Méthode pour récupérer un membre par son identifiant.
-     *
-     * @param userId L'identifiant du membre à rechercher.
-     * @return Le membre correspondant à l'identifiant.
-     * @throws UserNotFoundException Si le membre avec cet identifiant n'est pas trouvé.
-     */
     @Override
     public User getMemberById(Long userId) {
         return userRepository.findById(userId).orElseThrow(

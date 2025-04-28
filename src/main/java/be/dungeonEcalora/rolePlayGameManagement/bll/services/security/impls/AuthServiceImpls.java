@@ -38,7 +38,7 @@ public class AuthServiceImpls implements AuthService {
         }
         String password = generateRandomPassword(12);
         user.setPassword(passwordEncoder.encode(password));
-        user.setRole(Role.USER);
+        user.setRole(Role.Player);
         userRepository.save(user);
         Map<String, Object> variables = new HashMap<>();
         variables.put("username", user.getUsername());

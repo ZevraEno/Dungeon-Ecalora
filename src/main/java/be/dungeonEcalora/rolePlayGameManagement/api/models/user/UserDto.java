@@ -7,6 +7,7 @@ import be.dungeonEcalora.rolePlayGameManagement.dl.enums.Role;
 import java.time.LocalDate;
 
 public record UserDto(
+        Long id,
         String pseudonym,
         String email,
         LocalDate birthDate,
@@ -16,6 +17,7 @@ public record UserDto(
 
     public static UserDto fromUser(User user) {
         return new UserDto(
+                user.getId(),
                 user.getPseudonym(),
                 user.getEmail(),
                 user.getBirthDate(),

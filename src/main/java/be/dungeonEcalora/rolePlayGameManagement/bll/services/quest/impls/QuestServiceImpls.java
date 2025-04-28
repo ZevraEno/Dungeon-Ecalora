@@ -24,7 +24,7 @@ public class QuestServiceImpls implements QuestService {
     public Quest update(Long id, Quest quest) {
         Quest existing = repository.findById(id).orElseThrow(() -> new EntityNotFoundException("Quete non trouvé"));
         existing.setNom(quest.getNom());
-        existing.setDifficulté(quest.getDifficulté());
+        existing.setDifficulte(quest.getDifficulte());
         existing.setGenre(quest.getGenre());
         existing.setNote(quest.getNote());
         return repository.save(existing);

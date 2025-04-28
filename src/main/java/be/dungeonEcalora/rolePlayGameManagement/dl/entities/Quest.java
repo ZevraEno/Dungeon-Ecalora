@@ -19,6 +19,13 @@ public class Quest {
     @Column(nullable = false)
     private String nom;
     private String genre;
-    private String difficulté;
+    private String difficulte;
     private String note;
+
+    public Quest(String nom, String genre, String difficulte, String note) {
+        this.nom = nom;
+        this.genre = genre;
+        this.difficulte = difficulte;
+        this.note= note;
+    }
 }

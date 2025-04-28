@@ -3,7 +3,9 @@ package be.dungeonEcalora.rolePlayGameManagement.bll.services.guide.impls;
 import be.dungeonEcalora.rolePlayGameManagement.bll.services.guide.GuideService;
 
 import be.dungeonEcalora.rolePlayGameManagement.dal.repositories.GuideRepository;
+import be.dungeonEcalora.rolePlayGameManagement.dal.repositories.RaceRepository;
 import be.dungeonEcalora.rolePlayGameManagement.dl.entities.Guide;
+import be.dungeonEcalora.rolePlayGameManagement.dl.entities.Race;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -31,7 +33,6 @@ public class GuideServiceImpls implements GuideService {
 
     @Override
     public Guide save(Guide guide) {
-        guide.setDatePublication(LocalDate.now());
         return guideRepository.save(guide);
     }
 
@@ -41,7 +42,7 @@ public class GuideServiceImpls implements GuideService {
             existing.setTitre(guide.getTitre());
             existing.setDescription(guide.getDescription());
             existing.setContenu(guide.getContenu());
-            existing.setAuteur(guide.getAuteur());
+            existing.setOrigin(guide.getOrigin());
             return guideRepository.save(existing);
         }).orElseThrow(() -> new RuntimeException("Guide not found with id: " + id));
     }
