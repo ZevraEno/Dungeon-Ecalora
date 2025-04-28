@@ -32,7 +32,7 @@ public class EquipmentController {
     }
 
     @PostMapping
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('GameMaster')")
     public Equipment createEquipment(@RequestBody Equipment equipment) {
         return equipmentService.save(equipment);
     }
@@ -45,7 +45,6 @@ public class EquipmentController {
             return ResponseEntity.notFound().build();
         }
     }
-    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteEquipment(@PathVariable Long id) {
         equipmentService.deleteById(id);
