@@ -37,8 +37,8 @@ public class WaitingRoomServiceImpls implements WaitingRoomService {
 
     @Override
     public boolean canStartSession() {
-        boolean hasAdmin = usersInRoom.values().stream().anyMatch(user -> "ADMIN".equalsIgnoreCase(String.valueOf(user.role())));
-        boolean hasUser = usersInRoom.values().stream().anyMatch(user -> "USER".equalsIgnoreCase(String.valueOf(user.role())));
+        boolean hasAdmin = usersInRoom.values().stream().anyMatch(user -> "GameMaster".equalsIgnoreCase(String.valueOf(user.role())));
+        boolean hasUser = usersInRoom.values().stream().anyMatch(user -> "Player".equalsIgnoreCase(String.valueOf(user.role())));
         return hasAdmin && hasUser;
     }
 }
